@@ -1,5 +1,7 @@
 
 import pandas as pd
+import streamlit as st
+import plotly.express as px
 
 
 df_clientes = pd.read_csv("datasets/olist_customers_dataset.csv")
@@ -77,3 +79,20 @@ df_resumo = pd.DataFrame({
     'Vendas por Categoria': [vendas_por_categoria.to_dict()]
 })
 
+st.title("📊 Dashboard de Vendas - E-commerce")
+
+# **Métrica de Receita Total**
+receita_total = df_resumo["Receita Total"].values[0]
+st.metric(label="💰 Receita Total", value=f"R$ {receita_total:,.2f}")
+
+# **Gráfico de Vendas por Estado**
+st.subheader("📍 Vendas por Estado")
+df_estado = pd.DataFrame(df_resumo["Vendas por Estado"].values[0].items(), columns=["Estado", "Número de Vendas"])
+fig_estado = px.bar(df_estado, x="Estado", y="Número de Vendas", title="Vendas por Estado")
+st.plotly_chart(fig_estado)
+
+# **Gráfico de Vendas por Categoria de Produto**
+st.subheader("🛍️ Vendas por Categoria de Produto")
+df_categoria = pd.DataFrame(df_resumo["Vendas por Categoria"].values[0].items(), columns=["Categoria", "Total de Vendas"])
+fig_categoria = px.pie(df_categoria, names="Categoria", values="Total de Vendas", title="Vendas por Categoria")
+st.plotly_chart(fig_categoria)
