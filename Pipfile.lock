@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2c87cf64fdba433f730bea3e2fc48cdac939bcd6a8513d3245f295ecc4531d0c"
+            "sha256": "05acde1e693e7d87aa77edcd9da3c6024b3b1aa5ec6ae8535d2ceb8248dd63ae"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -218,13 +218,11 @@
             "version": "==2024.10.1"
         },
         "kagglehub": {
-            "extras": [
-                "pandas-datasets"
-            ],
             "hashes": [
                 "sha256:7df4238eea20817bce13bfacbe79ff4c0a583a9e876bfaf16d7ad6179611fb7c",
                 "sha256:82a204e77919da54021038971ed735450c91ea479c5c003d140a22503bc20981"
             ],
+            "index": "pypi",
             "markers": "python_version >= '3.9'",
             "version": "==0.3.10"
         },
