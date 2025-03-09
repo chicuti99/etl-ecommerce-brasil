@@ -117,7 +117,7 @@ Após a escolha do dataset, segui os seguintes passos:
 
 #### 5. **Automação do Pipeline**
 
-Para automação do pipeline, utilizei as ferramentas do próprio GCP para executar a pipeline uma vez por dia, garantindo a atualização contínua dos dados.
+Para automação do pipeline, utilizei as ferramentas do próprio GCP para executar a pipeline uma vez por dia, garantindo a atualização contínua dos dados. Essa escolhe foi feita tendo em mente que,por ser uma opção serverless geraria poucos custos,pois seria feita sob demanda
 
 ---
 
