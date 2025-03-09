@@ -1,19 +1,19 @@
 # **Projeto de Análise de Dados de E-commerce**
 
-Este repositório contém dois arquivos com o mesmo nome, "Notebook_Amentoria", com extensões diferentes: `.ipynb` e `.py`. Ambos realizam tarefas de extração, transformação e análise dos dados de um e-commerce, mas de maneiras diferentes.
+Este repositório contém dois arquivos mais importantes, "Notebook_Amentoria" e "dataViewer". Ambos realizam tarefas de extração, transformação e análise dos dados de um e-commerce, mas de maneiras diferentes.
 
 ### Estrutura dos Arquivos:
 
 1. **Notebook_Amentoria.ipynb**:  
    Este notebook contém a pipeline usada no Google Cloud Platform (GCP), onde os dados são extraídos de um banco de dados SQL via queries otimizadas e transformados em dataframes para análise.
 
-2. **Notebook_Amentoria.py**:  
-   Este script Python realiza a extração dos dados diretamente de arquivos `.csv` e os transforma em dataframes. Além disso, 
+2. **dataViewer.ipynb**:  
+   Este notebook realiza a extração dos dados diretamente de arquivos `.csv` que estão diretamente na pasta datasets, e os transforma em dataframes. para executar os arquivos, 
 ---
 
 ### Como Executar:
 
-#### 1. **Executando o arquivo `.ipynb` no GCP (BigQuery)**
+#### 1. **Executando o arquivo `Notebook_Amentoria.ipynb` no GCP (BigQuery)**
 
 1. **Preparação do GCP (BigQuery)**:
    - No BigQuery do GCP, crie um conjunto de dados com o nome **"ecommerce_dataset"**.
@@ -33,19 +33,45 @@ Este repositório contém dois arquivos com o mesmo nome, "Notebook_Amentoria", 
    - Em "Esquema", marque o botão **"Detectar automaticamente"** para que o BigQuery configure os tipos de dados corretamente.
    
 3. **Execução**:  
-   - Após criar as tabelas, basta executar as células de codigo do notebook **"Notebook_Amentoria"**.
+   - Após criar as tabelas, basta executar as células de codigo do notebook **"Notebook_Amentoria"** seja importando o arquivo ou copiando e colando os codigos em um notebook criado manualmente.
 
 ---
 
-#### 2. **Executando o arquivo `.py`**
+#### 2. **Executando o arquivo `dataViewer.ipynb`**
 
 1. **Criando um Ambiente Virtual**:
-   - Crie um ambiente virtual (opcional, mas recomendado).
+   - Crie um ambiente virtual com pipenv.Caso não tenha use o comando:
+   ```bash
+   pip install pipenv
+   ```
+
+   apos isso crie o ambiente virtual com:
+   ```bash
+   pipenv --python 3.9.15
+   ```
+
+   pode baixar as dependencias com:
+    ```bash
+   pipenv install pandas streamlit plotly
+   ```
+
+   ou so com 
+    ```bash
+    pipenv install
+    ```
+
+    apos isso user o comando
+    ```bash
+    pipenv shell
+    ```
+
+    Dentro do notebook selecione o kernel criado recentemente,que e o nome da pasta acrescido de um hash. apos isso execute as celulas do notebook,sempre em sequencia
+
    
 2. **Instalar Dependências**:
    - Instale as dependências necessárias com o comando abaixo caso opte pelo pipenv com python 3.9.15:
      ```bash
-     pipenv install pandas streamlit plotly
+     pipenv install pandas streamlit plotly sqlalchemy
      ```
 
      apos isso use o comando:
@@ -92,6 +118,12 @@ Após a escolha do dataset, segui os seguintes passos:
 #### 5. **Automação do Pipeline**
 
 Para automação do pipeline, utilizei as ferramentas do próprio GCP para executar a pipeline uma vez por dia, garantindo a atualização contínua dos dados.
+
+---
+
+#### 5. **script para criação de banco de dados**
+
+Para criação do banco de dados local e so executar o script `database_create.py` com as credenciais corretas do banco
 
 ---
 
