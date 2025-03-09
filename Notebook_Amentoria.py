@@ -81,18 +81,28 @@ df_resumo = pd.DataFrame({
 
 st.title("📊 Dashboard de Vendas - E-commerce")
 
-# **Métrica de Receita Total**
 receita_total = df_resumo["Receita Total"].values[0]
 st.metric(label="💰 Receita Total", value=f"R$ {receita_total:,.2f}")
 
-# **Gráfico de Vendas por Estado**
 st.subheader("📍 Vendas por Estado")
 df_estado = pd.DataFrame(df_resumo["Vendas por Estado"].values[0].items(), columns=["Estado", "Número de Vendas"])
 fig_estado = px.bar(df_estado, x="Estado", y="Número de Vendas", title="Vendas por Estado")
 st.plotly_chart(fig_estado)
 
-# **Gráfico de Vendas por Categoria de Produto**
 st.subheader("🛍️ Vendas por Categoria de Produto")
 df_categoria = pd.DataFrame(df_resumo["Vendas por Categoria"].values[0].items(), columns=["Categoria", "Total de Vendas"])
 fig_categoria = px.pie(df_categoria, names="Categoria", values="Total de Vendas", title="Vendas por Categoria")
 st.plotly_chart(fig_categoria)
+
+
+st.subheader("🚚 Quantidade de Entregas Atrasadas")
+entregas_atrasadas = df_pedidos['is_delivered_late'].value_counts().reset_index()
+entregas_atrasadas.columns = ['Entregas Atrasadas', 'Quantidade']
+fig_atrasadas = px.bar(entregas_atrasadas, x="Entregas Atrasadas", y="Quantidade", title="Entregas Atrasadas")
+st.plotly_chart(fig_atrasadas)
+
+# Gráfico de Valor Total dos Pedidos
+st.subheader("💵 Valor Total dos Pedidos")
+valor_total_pedidos = df_pedidos.groupby('order_id')['total_order_value'].sum().reset_index()
+fig_valor_total = px.histogram(valor_total_pedidos, x="total_order_value", nbins=50, title="Distribuição do Valor Total dos Pedidos")
+st.plotly_chart(fig_valor_total)

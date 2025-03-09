@@ -8,8 +8,7 @@ Este repositório contém dois arquivos com o mesmo nome, "Notebook_Amentoria", 
    Este notebook contém a pipeline usada no Google Cloud Platform (GCP), onde os dados são extraídos de um banco de dados SQL via queries otimizadas e transformados em dataframes para análise.
 
 2. **Notebook_Amentoria.py**:  
-   Este script Python realiza a extração dos dados diretamente de arquivos `.csv` e os transforma em dataframes. Além disso, ele contém um trecho de código para visualização dos dados com Streamlit.
-
+   Este script Python realiza a extração dos dados diretamente de arquivos `.csv` e os transforma em dataframes. Além disso, 
 ---
 
 ### Como Executar:
@@ -34,7 +33,7 @@ Este repositório contém dois arquivos com o mesmo nome, "Notebook_Amentoria", 
    - Em "Esquema", marque o botão **"Detectar automaticamente"** para que o BigQuery configure os tipos de dados corretamente.
    
 3. **Execução**:  
-   - Após criar as tabelas, basta executar as células do notebook.
+   - Após criar as tabelas, basta executar as células de codigo do notebook **"Notebook_Amentoria"**.
 
 ---
 
@@ -44,9 +43,14 @@ Este repositório contém dois arquivos com o mesmo nome, "Notebook_Amentoria", 
    - Crie um ambiente virtual (opcional, mas recomendado).
    
 2. **Instalar Dependências**:
-   - Instale as dependências necessárias com o comando:
+   - Instale as dependências necessárias com o comando abaixo caso opte pelo pipenv com python 3.9.15:
      ```bash
-     pip install pandas streamlit plotly
+     pipenv install pandas streamlit plotly
+     ```
+
+     apos isso use o comando:
+    ```bash
+     pipenv shell
      ```
 
 3. **Executando o Script**:
