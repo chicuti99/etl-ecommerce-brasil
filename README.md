@@ -121,7 +121,7 @@ Para automação do pipeline, utilizei as ferramentas do próprio GCP para execu
 
 ---
 
-#### 5. **script para criação de banco de dados**
+#### 6. **script para criação de banco de dados**
 
 Para criação do banco de dados local e so executar o script `database_create.py` com as credenciais corretas do banco
 
